@@ -5,15 +5,36 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 
 class Navbar extends Component {
-  render() {
-    onLogoutClick(e) {
-      e.preventDefault();
-      this.props.logoutUser();
-    }
+  onLogoutClick(e) {
+    e.preventDefault();
+    this.props.logoutUser();
+  }
 
+  render() {
     const { isAuthenticated, user } = this.props.auth;
 
-    const authLinks = {
+    const authLinks = (
+      <ul className="navbar-nav ml-auto">
+        <li className="nav-item">
+          <a
+            href=""
+            onClick={this.onLogoutClick.bind(this)}
+            className="nav-link"
+          >
+            <img
+              className="rounded-circle"
+              src={user.avatar}
+              alt={user.name}
+              style={{ width: "25px", marginRight: "5px" }}
+              title="You must have a Gravatar connected to your email to display an image"
+            />{" "}
+            Logout
+          </a>
+        </li>
+      </ul>
+    );
+
+    const guestLinks = (
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
           <Link className="nav-link" to="/register">
@@ -26,24 +47,7 @@ class Navbar extends Component {
           </Link>
         </li>
       </ul>
-    };
-
-    const guestLinks = {
-      <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
-          <a href="#" onClick={this.onLogoutClick.bind(this)} className="nav-link">
-          
-          <img
-            className="rounded-circle" 
-            src={user.avatar}
-            alt={user.name} 
-            style={{ width: '25px', marginRight: '5px'}}title="You must have a Gravatar connected to your email to display an image" 
-            />{' '}
-          Logout          
-          </a>
-        </li>
-      </ul>
-    };
+    );
 
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">

@@ -46,10 +46,6 @@ class Register extends Component {
       password2: this.state.password2
     };
 
-    // Any actions we bring in we do so through
-    // props
-
-    // Will redirect via this action
     this.props.registerUser(newUser, this.props.history);
   }
 
@@ -65,7 +61,7 @@ class Register extends Component {
               <p className="lead text-center">
                 Create your DevConnector account
               </p>
-              <form onSubmit={this.onSubmit}>
+              <form noValidate onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <input
                     type="text"
@@ -146,10 +142,6 @@ Register.propTypes = {
   errors: PropTypes.object.isRequired
 };
 
-// TO get any state into our component, use the
-// following
-
-// Enables us to access auth via this.props.auth
 const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors
