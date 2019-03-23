@@ -56,7 +56,7 @@ class App extends Component {
             <div className="container">
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
-              <Route exact path="/profiles" component={profiles} />
+              <Route exact path="/profiles" component={Profiles} />
               {/* Switch allows you to redirect
               in the event you logout :) */}
               <Switch>
