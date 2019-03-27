@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import PostFeed from "./PostFeed";
 import PostForm from "./PostForm";
+import PostFeed from "./PostFeed";
 import Spinner from "../common/spinner";
 import { getPosts } from "../../actions/postActions";
 
