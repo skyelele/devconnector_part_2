@@ -139,7 +139,7 @@ class CreateProfile extends Component {
       socialInputs = (
         <div>
           <InputGroup
-            placeholder="Twitter Profile URL"
+            placeholder="Twitter Profile URLL"
             name="twitter"
             icon="fab fa-twitter"
             value={this.state.twitter}
